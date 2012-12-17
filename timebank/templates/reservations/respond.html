@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{%load  i18n  %}
+{%block body%}
+
+
+<div id="respond-{{respond.respond.pk}}" data-role="page" class="page" data-dom-cache="true">
+
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>{{response.get_action_display}}</h1>
+</div>
+<div data-role="content">
+<div>
+	<div>{%trans 'Title'%}:{{response.appointment.service.title}}</div>
+	<div>{%trans 'Date'%}:{{response.rdate}}</div>
+	<div>{%trans 'Location'%}:{{response.location}}</div>
+</div>
+<form method="post" >{%csrf_token%}
+<div style="display:none" >
+	{{ form.action.label_tag }}
+	{{ form.action }}
+	{{ form.action.errors }}
+	
+</div>
+
+
+<div data-role="fieldcontain">
+
+
+	{%ifequal action '2' %}
+	{{ form.rdate.label_tag }}
+	{{ form.rdate }}
+	{{ form.rdate.errors }}
+	{{ form.location.label_tag }}
+	{{ form.location }}
+	{{ form.location.errors }}
+	{%endifequal%}
+	{{ form.message.label_tag }}
+	{{ form.message }}
+	{{ form.message.errors }}
+</div>
+
+<fieldset class="ui-grid-a">
+	<div class="ui-block-a"><button value='cancel' type="button" onclick="go_home();" data-theme="d" data-mini="true">Cancel</button></div>
+	<div class="ui-block-b"><button type="submit" data-theme="a" data-mini="true">Submit</button></div>
+</fieldset>	
+</form>
+</div><!-- /content -->			
+</div><!-- /page home-->
+
+
+{%endblock body%}

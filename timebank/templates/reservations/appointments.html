@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{%load  i18n  %}
+{%block body%}
+
+
+<div id="appointments" data-role="page" class="page" data-dom-cache="false">
+
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>{%trans 'My Reservations'%}</h1>
+	<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	<a href="/search/" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+</div>
+<div data-role="content">
+
+<ul data-role="listview"  data-split-theme="d" data-filter="true">
+<li data-role="list-divider">{%trans 'Appointments'%}</li>
+{%for r in aps%}
+<li><a href="/reservations/appointment/{{r.pk}}/" data-ajax='false' >
+	<h3>{{r.service.title}}:{{r.appointment_date|date:"d/m/Y"}}</h3>
+	<p>{%trans 'Status'%}:{{r.get_status_display}}</p>
+	<p>{{r.service.owner}} -> {{r.reciever}}</p>
+	</a>
+</li>
+{%endfor%}
+</ul>
+
+</div><!-- /content -->			
+{%include 'menu.html' %}
+</div><!-- /page home-->
+{%endblock body%}

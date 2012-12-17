@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{%load  i18n  %}
+{%block body%}
+
+
+<div id="service-{{service.pk}}" data-role="page" class="page" data-dom-cache="true">
+
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>{{service.title}}:{{service.owner}}</h1>
+	<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	<a href="/search/" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+</div>
+<div data-role="content">
+<div>
+	<div>{%trans 'Title'%}:{{service.title}}</div>
+	<div>{%trans 'Description'%}:{{service.description}}</div>
+	<div>{%trans 'Location'%}:{{service.location}}</div>
+</div>
+
+{%ifequal service.owner user%}
+<a href="/services/edit/{{service.pk}}/">{%trans 'Edit'%}</a>
+{%else%}
+<a href="/reservations/reserve/{{service.pk}}/">{%trans 'Reserve'%}</a>
+{%endifequal%}
+
+
+</div><!-- /content -->			
+{%include 'menu.html' %}
+</div><!-- /page home-->
+
+
+{%endblock body%}

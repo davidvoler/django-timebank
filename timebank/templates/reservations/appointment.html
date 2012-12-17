@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{%load  i18n  %}
+{%block body%}
+
+
+<div id="appointment-{{ap.pk}}" data-role="page" class="page" data-dom-cache="false">
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>{%trans 'Appointment'%}: {{ap.service.title}}</h1>
+	<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	<a href="/search/" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+</div>
+<div data-role="content">
+<table>
+<tr>
+	<td>{%trans 'Service'%}</td>
+	<td>{{ap.service.title}}</td>
+</tr>
+<tr>
+	<td>{%trans 'Date'%}</td>
+	<td>{{ap.appointment_date}}</td>
+</tr>
+<tr>
+	<td>{%trans 'Status'%}</td>
+	<td>{{ap.get_status_display}}</td>
+</tr>
+<tr>
+	<td>{%trans 'Location'%}</td>
+	<td>{{ap.location}}</td>
+</tr>
+</table>
+
+<table>
+<tr>
+	<td>{%trans 'Date'%}</td>
+	<td>{%trans 'Status'%}</td>
+	<td>{%trans 'Location'%}</td>
+	<td>{%trans 'Message'%}</td>
+	<td>{%trans 'Action'%}</td>
+</tr>
+{%for r in ap.reservation_set.all%}
+<tr>
+	<td>{{r.rdate}}</td>
+	<td>{{r.get_status_display}}</td>
+	<td>{{r.location}}</td>
+	<td>{{r.message}}</td>
+	{%ifequal ap.status 1%}
+	{%ifequal r.status 0%}
+	{%ifequal r.target user%}
+	<td><a href="/reservations/respond/{{r.pk}}/10/" data-icon="gear" data-rel="dialog" >{%trans 'Accept'%}</a></td> 
+	<td><a href="/reservations/respond/{{r.pk}}/1/" data-icon="gear" data-rel="dialog">{%trans 'Reject'%}</a></td>
+	<td><a href="/reservations/respond/{{r.pk}}/2/" data-icon="gear" data-rel="dialog">{%trans 'Reschedule'%}</a></td>
+	{%else%}
+	<td>{%trans 'Waiting for acceptance'%}</td>	
+	{%endifequal%}
+	{%endifequal%}
+	{%endifequal%}
+</tr>
+{%endfor%}
+</table>
+
+</div><!-- /content -->			
+{%include 'menu.html' %}
+</div><!-- /page home-->
+
+{%endblock body%}
+
+

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{%load  i18n  %}
+{%block body%}
+<script type="text/javascript">
+function go_home(){
+	$.mobile.changePage('/');
+}
+</script>
+<div id="add_service" data-role="page" class="page" data-dom-cache="true">
+
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>{{service.title}}:{{service.owner}}</h1>
+	<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	<a href="/search/" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+</div>
+
+<div data-role="content">
+		
+<form  method="post" >{%csrf_token%}
+	{% for field in form %}
+<div data-role="fieldcontain">
+	{{ field.label_tag }}
+	{{ field }}
+	{{ field.errors }}
+</div>
+{% endfor %}
+ 
+<fieldset class="ui-grid-a">
+	<div class="ui-block-a"><button value='cancel' type="button" onclick="go_home();" data-theme="d" data-mini="true">Cancel</button></div>
+	<div class="ui-block-b"><button type="submit" data-theme="a" data-mini="true">Submit</button></div>
+</fieldset>	
+</form>
+
+</div><!-- /content -->
+</div><!-- /page home-->
+
+
+{%endblock body%}

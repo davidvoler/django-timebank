@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{%load  i18n  %}
+{%block body%}
+
+
+<div id="service-{{service.pk}}" data-role="page" class="page" data-dom-cache="true">
+
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>{{service.title}}:{{service.owner}}</h1>
+	<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	<a href="/search/" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+</div>
+<div data-role="content">
+<div>
+	<div>{%trans 'Title'%}:{{service.title}}</div>
+	<div>{%trans 'Description'%}:{{service.description}}</div>
+	<div>{%trans 'Location'%}:{{service.location}}</div>
+</div>
+<form  method="post" >{%csrf_token%}
+{% for field in form %}
+<div data-role="fieldcontain">
+	{{ field.label_tag }}
+	{{ field }}
+	{{ field.errors }}
+</div>
+{% endfor %}
+
+<fieldset class="ui-grid-a">
+	<div class="ui-block-a"><button value='cancel' type="button" onclick="go_home();" data-theme="d" data-mini="true">Cancel</button></div>
+	<div class="ui-block-b"><button type="submit" data-theme="a" data-mini="true">Submit</button></div>
+</fieldset>	
+</form>
+</div><!-- /content -->			
+{%include 'menu.html' %}
+</div><!-- /page home-->
+
+
+{%endblock body%}
