@@ -1,0 +1,18 @@
+{%load  i18n  %}
+<div data-role="footer" data-theme="b" data-position="fixed">
+	<div data-role="navbar">
+	<ul>
+		{%if user.is_active%}
+		{%comment%}
+		TODO: replace link text with icons to feet smarphone size
+		{%endcomment%}
+		<li><a href="/reservations/appointments/">{%trans 'Appointments'%}</a></li>
+		<li><a href="/reservations/reservations/">{%trans 'Reservations'%}</a></li>
+		<li><a href="/services/my/">{%trans 'My Services'%}</a></li>
+		{%for n in notifications%}
+		<li><a title='{{n.title}}' href="{{n.link}}">{{n.caption}}</a></li>
+		{%endfor%}
+		{%endif%}
+	</ul>
+	</div><!-- /navbar -->
+</div>

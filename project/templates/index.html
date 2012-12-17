@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{%load  i18n  %}
+{%block body%}
+
+
+<div id="home" data-role="page" class="page" data-dom-cache="true">
+
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>{%trans 'Hour Bank'%}</h1>
+	<a href="../../" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	<a href="../nav.html" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+</div>
+
+<div data-role="content">
+
+<div><h2>{%trans 'Themes'%}</h2>
+<ul data-role="listview" data-theme="b">
+	{%for t in themes%}
+	<li><a href='/services/{{t.pk}}/' >{{t.name}}</a></li>
+	{%endfor%}
+	<li><a href='/services/0/'>{%trans 'All'%}</a></li>
+</ul>
+</div>
+</div><!-- /content -->			
+{%include 'menu.html' %}
+</div><!-- /page home-->
+
+
+{%endblock body%}
