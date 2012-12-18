@@ -15,12 +15,12 @@ framework.
 """
 import os
 try:
-    import demo.local_config # Assumed to be in the same directory.
+    import project.local_config # Assumed to be in the same directory.
 except ImportError:
     sys.stderr.write("Error: Can not import file  'local_config.py' ")
     sys.exit(1)
     
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "demo.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
