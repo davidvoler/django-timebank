@@ -26,7 +26,7 @@ class Service(models.Model):
     min_minutes = models.IntegerField(default=30,null=True,blank=True)
     max_minutes = models.IntegerField(default=90,null=True,blank=True)
     location = models.CharField(max_length=255,null=True,blank=True)
-    currency = models.ForeignKey(Currency,null=True,blank=True)
+    #currency = models.ForeignKey(Currency,null=True,blank=True)
     cost = models.IntegerField(default=1,null=True,blank=True)
     def __unicode__(self):
         return "%s:%s"%(self.theme, self.title)
