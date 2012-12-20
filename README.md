@@ -1,10 +1,14 @@
 django-timebank
 ===============
-
 A time banking application using Django, jQuery Mobile. 
 
-The idea - Time banking accesible from smartphones and comupter alike
+Status
+-------
+The project is in Alpha stage
+
+The idea
 ---------
+Time banking accesible from smartphones and comupter alike
 
 
 Instalation
@@ -21,4 +25,5 @@ Assuming you have python and django(1.4.x) installed. (for instruction on instal
 4. run python manage.py syncdb
 
 5. ran python manage.py runserver 
+
 
