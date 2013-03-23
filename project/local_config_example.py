@@ -7,3 +7,4 @@ os.environ['TEMPLATES_DIR']=PROJECT_DIR+'templates'
 os.environ['SECRET_KEY']=''
 os.environ['DEMO_TEMPLATES_DIR']=PROJECT_DIR+'project/templates'
 os.environ['TIME_BANK_TEMPLATES_DIR']=PROJECT_DIR+'timebank/templates'
+os.environ['PROJECT_DIR']=PROJECT_DIR
