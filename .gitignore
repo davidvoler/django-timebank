@@ -1,4 +1,7 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
+*.pyo
+.project
+.pydevproject
+project/local_settings.py
