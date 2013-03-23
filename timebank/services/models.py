@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
-from timebank.currency.models import Currency
+#from timebank.currency.models import Currency
 
 class Theme(models.Model):
     name = models.CharField(max_length=255)

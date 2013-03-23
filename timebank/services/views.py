@@ -10,7 +10,7 @@ from django.utils.translation import ugettext as _
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 
-from timebank.transactions.models import Transaction
+#from timebank.transactions.models import Transaction
 from timebank.services.models import Service,Theme
 from timebank.services.forms import ServiceForm
 
@@ -21,7 +21,8 @@ def my(request):
                               {'services':services},
             context_instance =  RequestContext(request)) 
 def services(request,theme):
-    services=Service.objects.filter(published=True,auth=1)
+    
+    services=Service.objects.filter(published=True,auth=1).exclude(owner = request.user)
     if theme!='0':
         services=services.filter(theme=theme)
         sel_theme=Theme.objects.get(pk=theme)

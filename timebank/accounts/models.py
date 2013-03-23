@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from timebank.services.models import Service
 from timebank.reservations.models import Appointment
-import datetime
-
 #Penalty Period
 PENALTY_HALF=4
 PENALTY_FULL=1

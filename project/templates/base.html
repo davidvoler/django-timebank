@@ -5,13 +5,25 @@
 <title>{%trans 'Hour Bank'%}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0;"  />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.css" />
+<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" /> 
+<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+<link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" /> 
 {%comment%}
 <link rel="stylesheet" href="{{THEME}}style.css" />
 {%endcomment%}
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script  type="text/javascript" src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script> 
+<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationbox.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.slidebox.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+
 <meta charset="utf-8">
 <script type="text/javascript">
 jQuery(document).ajaxSend(function(event, xhr, settings) {
@@ -62,6 +74,11 @@ $(document).bind("mobileinit", function(){
     pageLoadErrorMessage:'{%trans "Error Loading Page"%}'
   });
 });
+/*
+jQuery.extend(jQuery.mobile.datebox.prototype.options, {
+    'overrideDateFormat': 'dd/mm/yyyy',
+});
+*/
 </script>
 {%block head-extra%}
 {%endblock head-extra%}

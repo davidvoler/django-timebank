@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 
 import datetime
-from timebank.transactions.models import Transaction
+#from timebank.transactions.models import Transaction
 from timebank.reservations.models import Appointment, Reservation
 from timebank.services.models import Service
 from timebank.reservations.forms import ReservationForm,RespondForm
