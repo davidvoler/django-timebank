@@ -4,4 +4,7 @@
 *.pyo
 .project
 .pydevproject
+.settings
+static
+static/*
 project/local_settings.py
